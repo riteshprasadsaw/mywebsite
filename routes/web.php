@@ -14,4 +14,12 @@
 
 Route::get('/','UsersController@index');
 
-Route::get('/{name}','UsersController@show');
+//Route::get('/{name}','UsersController@show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::post('/purchases', 'PurchasesController@store');
+
+
