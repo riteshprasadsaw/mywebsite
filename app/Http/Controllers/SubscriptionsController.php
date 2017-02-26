@@ -19,13 +19,18 @@ class SubscriptionsController extends Controller
 
            //dd(request('product'));
 
-  		  	$customer=Customer::create([
 
-  		  			'email'=>request('stripeEmail'),
-  		  			'source'=>request('stripeToken'),
+  		  	try{
+            $customer=Customer::create([
+
+              'email'=>request('stripeEmail'),
+              'source'=>request('stripeToken'),
               'plan'=>$plan->plan_id
 
-  		  		]);
+            ]);
+          } catch(\Exception $e){
+             return response()->json(['status'=>$e->getMessage()], 422);
+          }
 
   		  	
 

@@ -6,7 +6,7 @@
               
                 <input type="hidden" name="stripeToken" v-model="stripeToken">
                 <input type="hidden" name ="stripeEmail" v-model="stripeEmail">
-                <button type="submit"  @click.prevent="subscribe"> Subscrib</button>
+                
 
                 <select name="plan" v-model="plan">
 
@@ -15,6 +15,10 @@
                     </option>
 
                 </select>
+
+                <button type="submit"  @click.prevent="subscribe"> Subscribe</button>
+
+                <p class="help is-danger" v-show="status" v-text="status"></p>
 
                 </form>
 
@@ -29,7 +33,8 @@
                 return {
                     stripeEmail: '',
                     stripeToken: '',
-                    plan:1
+                    plan:1,
+                    status:false
                 }
         },
 
@@ -47,9 +52,12 @@
                 $this.stripeEmail = token.email;
                 $this.stripeToken = token.id;
 
-                $this.$http.post('/subscriptions', $this.$data).then(response=>{
-                    alert('Complete, Thanks for your payment !');
-                });
+                $this.$http.post('/subscriptions', $this.$data).then(
+
+                response=> alert('Complete, Thanks for your payment !'),
+                response=>this.status=response.body.status
+
+                );
 
             }
 

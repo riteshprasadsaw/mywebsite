@@ -1824,6 +1824,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
 
@@ -1833,10 +1837,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             stripeEmail: '',
             stripeToken: '',
-            plan: 1
+            plan: 1,
+            status: false
         };
     },
     created: function created() {
+        var _this = this;
 
         var $this = this;
         this.stripe_checkout = StripeCheckout.configure({
@@ -1851,7 +1857,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 $this.stripeToken = _token.id;
 
                 $this.$http.post('/subscriptions', $this.$data).then(function (response) {
-                    alert('Complete, Thanks for your payment !');
+                    return alert('Complete, Thanks for your payment !');
+                }, function (response) {
+                    return _this.status = response.body.status;
                 });
             }
 
@@ -2054,17 +2062,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.stripeEmail = $event.target.value
       }
     }
-  }), _vm._v(" "), _c('button', {
-    attrs: {
-      "type": "submit"
-    },
-    on: {
-      "click": function($event) {
-        $event.preventDefault();
-        _vm.subscribe($event)
-      }
-    }
-  }, [_vm._v(" Subscrib")]), _vm._v(" "), _c('select', {
+  }), _vm._v(" "), _c('select', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2090,7 +2088,28 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "value": plan.id
       }
     }, [_vm._v("\n     " + _vm._s(plan.name) + " —  $" + _vm._s(plan.price / 100) + " \n     ")])
-  }))])
+  })), _vm._v(" "), _c('button', {
+    attrs: {
+      "type": "submit"
+    },
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.subscribe($event)
+      }
+    }
+  }, [_vm._v(" Subscribe")]), _vm._v(" "), _c('p', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.status),
+      expression: "status"
+    }],
+    staticClass: "help is-danger",
+    domProps: {
+      "textContent": _vm._s(_vm.status)
+    }
+  })])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
