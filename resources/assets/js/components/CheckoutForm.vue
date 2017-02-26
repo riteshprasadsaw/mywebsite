@@ -1,17 +1,17 @@
 <template>
 
 
-               <form method="POST" action="/purchases">
+               <form method="POST" action="/subscriptions">
                  
               
                 <input type="hidden" name="stripeToken" v-model="stripeToken">
                 <input type="hidden" name ="stripeEmail" v-model="stripeEmail">
-                <button type="submit"  @click.prevent="buy"> Back this project </button>
+                <button type="submit"  @click.prevent="subscribe"> Subscrib</button>
 
-                <select name="product" v-model="product">
+                <select name="plan" v-model="plan">
 
-                    <option v-for="product in products":value="product.id">
-                    {{product.name}} &mdash;  ${{product.price/100}} 
+                    <option v-for="plan in plans":value="plan.id">
+                    {{plan.name}} &mdash;  ${{plan.price/100}} 
                     </option>
 
                 </select>
@@ -23,13 +23,13 @@
 <script>
     export default {
 
-        props:['products'],
+        props:['plans'],
 
         data(){
                 return {
                     stripeEmail: '',
                     stripeToken: '',
-                    product:1
+                    plan:1
                 }
         },
 
@@ -40,13 +40,14 @@
             key: Laravel.stripeKey,
             image:"https://stripe.com/img/documentation/checkout/marketplace.png",
             locale:"auto",
+            panelLabel:'Subscribe For',
             token: (token)=>{
         
                 console.log(token);
                 $this.stripeEmail = token.email;
                 $this.stripeToken = token.id;
 
-                $this.$http.post('/purchases', $this.$data).then(response=>{
+                $this.$http.post('/subscriptions', $this.$data).then(response=>{
                     alert('Complete, Thanks for your payment !');
                 });
 
@@ -59,24 +60,24 @@
 
         methods: {
 
-            buy(){
+            subscribe(){
 
-                   let product=this.findProductById(this.product);
+                   let plan=this.findPlanById(this.plan);
 
                    this.stripe_checkout.open({
 
-                        amount: product.price,
-                        name: product.name,
-                        description:product.description
+                        amount: plan.price,
+                        name: plan.name,
+                        description:plan.name
 
                      });
 
 
                 },
 
-            findProductById(id)
+            findPlanById(id)
                 {
-                       return this.products.find(product=>product.id==id);
+                       return this.plans.find(plan=>plan.id==id);
 
                 }
 

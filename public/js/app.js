@@ -1827,13 +1827,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = {
 
-    props: ['products'],
+    props: ['plans'],
 
     data: function data() {
         return {
             stripeEmail: '',
             stripeToken: '',
-            product: 1
+            plan: 1
         };
     },
     created: function created() {
@@ -1843,13 +1843,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             key: Laravel.stripeKey,
             image: "https://stripe.com/img/documentation/checkout/marketplace.png",
             locale: "auto",
+            panelLabel: 'Subscribe For',
             token: function token(_token) {
 
                 console.log(_token);
                 $this.stripeEmail = _token.email;
                 $this.stripeToken = _token.id;
 
-                $this.$http.post('/purchases', $this.$data).then(function (response) {
+                $this.$http.post('/subscriptions', $this.$data).then(function (response) {
                     alert('Complete, Thanks for your payment !');
                 });
             }
@@ -1859,21 +1860,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
-        buy: function buy() {
+        subscribe: function subscribe() {
 
-            var product = this.findProductById(this.product);
+            var plan = this.findPlanById(this.plan);
 
             this.stripe_checkout.open({
 
-                amount: product.price,
-                name: product.name,
-                description: product.description
+                amount: plan.price,
+                name: plan.name,
+                description: plan.name
 
             });
         },
-        findProductById: function findProductById(id) {
-            return this.products.find(function (product) {
-                return product.id == id;
+        findPlanById: function findPlanById(id) {
+            return this.plans.find(function (plan) {
+                return plan.id == id;
             });
         }
     }
@@ -2011,7 +2012,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('form', {
     attrs: {
       "method": "POST",
-      "action": "/purchases"
+      "action": "/subscriptions"
     }
   }, [_c('input', {
     directives: [{
@@ -2060,22 +2061,22 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": function($event) {
         $event.preventDefault();
-        _vm.buy($event)
+        _vm.subscribe($event)
       }
     }
-  }, [_vm._v(" Back this project ")]), _vm._v(" "), _c('select', {
+  }, [_vm._v(" Subscrib")]), _vm._v(" "), _c('select', {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: (_vm.product),
-      expression: "product"
+      value: (_vm.plan),
+      expression: "plan"
     }],
     attrs: {
-      "name": "product"
+      "name": "plan"
     },
     on: {
       "change": function($event) {
-        _vm.product = Array.prototype.filter.call($event.target.options, function(o) {
+        _vm.plan = Array.prototype.filter.call($event.target.options, function(o) {
           return o.selected
         }).map(function(o) {
           var val = "_value" in o ? o._value : o.value;
@@ -2083,12 +2084,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         })[0]
       }
     }
-  }, _vm._l((_vm.products), function(product) {
+  }, _vm._l((_vm.plans), function(plan) {
     return _c('option', {
       domProps: {
-        "value": product.id
+        "value": plan.id
       }
-    }, [_vm._v("\n     " + _vm._s(product.name) + " —  $" + _vm._s(product.price / 100) + " \n     ")])
+    }, [_vm._v("\n     " + _vm._s(plan.name) + " —  $" + _vm._s(plan.price / 100) + " \n     ")])
   }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
