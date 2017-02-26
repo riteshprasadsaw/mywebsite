@@ -1816,12 +1816,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
+
+    props: ['products'],
+
     data: function data() {
         return {
             stripeEmail: '',
-            stripeToken: ''
+            stripeToken: '',
+            product: 1
         };
     },
     created: function created() {
@@ -1849,12 +1861,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         buy: function buy() {
 
+            var product = this.findProductById(this.product);
+
             this.stripe_checkout.open({
 
-                amount: 2500,
-                name: "My Product Name",
-                description: "A simple test product."
+                amount: product.price,
+                name: product.name,
+                description: product.description
 
+            });
+        },
+        findProductById: function findProductById(id) {
+            return this.products.find(function (product) {
+                return product.id == id;
             });
         }
     }
@@ -2044,7 +2063,33 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.buy($event)
       }
     }
-  }, [_vm._v(" Back this project ")])])
+  }, [_vm._v(" Back this project ")]), _vm._v(" "), _c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.product),
+      expression: "product"
+    }],
+    attrs: {
+      "name": "product"
+    },
+    on: {
+      "change": function($event) {
+        _vm.product = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        })[0]
+      }
+    }
+  }, _vm._l((_vm.products), function(product) {
+    return _c('option', {
+      domProps: {
+        "value": product.id
+      }
+    }, [_vm._v("\n     " + _vm._s(product.name) + " —  $" + _vm._s(product.price / 100) + " \n     ")])
+  }))])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

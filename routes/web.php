@@ -12,7 +12,17 @@
 */
 
 
-Route::get('/','UsersController@index');
+
+Route::get('/',function(){
+
+	$products=App\Product::all();
+
+	return view('welcome', compact('products'));
+
+
+});
+
+//Route::get('/','UsersController@index');
 
 //Route::get('/{name}','UsersController@show');
 

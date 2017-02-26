@@ -8,6 +8,14 @@
                 <input type="hidden" name ="stripeEmail" v-model="stripeEmail">
                 <button type="submit"  @click.prevent="buy"> Back this project </button>
 
+                <select name="product" v-model="product">
+
+                    <option v-for="product in products":value="product.id">
+                    {{product.name}} &mdash;  ${{product.price/100}} 
+                    </option>
+
+                </select>
+
                 </form>
 
 </template>
@@ -15,16 +23,19 @@
 <script>
     export default {
 
+        props:['products'],
+
         data(){
                 return {
                     stripeEmail: '',
-                    stripeToken: ''
+                    stripeToken: '',
+                    product:1
                 }
         },
 
         created(){
 
-             var $this = this;
+            var $this = this;
             this.stripe_checkout = StripeCheckout.configure({
             key: Laravel.stripeKey,
             image:"https://stripe.com/img/documentation/checkout/marketplace.png",
@@ -47,20 +58,29 @@
         },
 
         methods: {
+
             buy(){
+
+                   let product=this.findProductById(this.product);
 
                    this.stripe_checkout.open({
 
-                        amount: 2500,
-                        name:"My Product Name",
-                        description:"A simple test product.",
+                        amount: product.price,
+                        name: product.name,
+                        description:product.description
 
                      });
 
 
+                },
 
+            findProductById(id)
+                {
+                       return this.products.find(product=>product.id==id);
 
                 }
+
+              
 
         }
     }
