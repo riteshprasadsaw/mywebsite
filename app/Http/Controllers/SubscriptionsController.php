@@ -28,13 +28,18 @@ class SubscriptionsController extends Controller
               'plan'=>$plan->plan_id
 
             ]);
+
           } catch(\Exception $e){
+
              return response()->json(['status'=>$e->getMessage()], 422);
           }
 
-  		  	
+  		  	request()->user()->activate($customer->id);
 
-  		  	return 'All done';
+  		  	return [
+           'status'=>'Success!'
+
+          ];
  
   		  }
 }

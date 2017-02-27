@@ -1850,6 +1850,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             image: "https://stripe.com/img/documentation/checkout/marketplace.png",
             locale: "auto",
             panelLabel: 'Subscribe For',
+            email: Laravel.user.email,
             token: function token(_token) {
 
                 console.log(_token);

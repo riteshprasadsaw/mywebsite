@@ -46,6 +46,7 @@
             image:"https://stripe.com/img/documentation/checkout/marketplace.png",
             locale:"auto",
             panelLabel:'Subscribe For',
+            email:Laravel.user.email,
             token: (token)=>{
         
                 console.log(token);

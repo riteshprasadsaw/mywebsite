@@ -19,11 +19,10 @@
             
                  
                <div id="app"> 
-                <checkout-form :plans="{{ $plans }}"></checkout-form>
+              
                 </div>
 
-                <script src="https://checkout.stripe.com/checkout.js"></script>
-                <script src="/js/app.js"></script>
+               
 
 
 </body>
