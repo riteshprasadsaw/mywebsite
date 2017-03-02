@@ -1,45 +1,39 @@
 <?php
-
 namespace App\Http\Controllers;
-
 //use Stripe\{Stripe,Charge,Customer};
-use Stripe\Charge;
-use Stripe\Customer;
-use App\Plan;
+
+use App\Http\Requests\RegistrationForm;
+use Exception;
 
 
 class SubscriptionsController extends Controller
 {
-  		  
-
-  		  public function store()
-  		  {
-
-          $plan=Plan::findorFail(request('plan'));
-
-           //dd(request('product'));
+        
+        public function store(RegistrationForm $form)
+        {
 
 
-  		  	try{
-            $customer=Customer::create([
 
-              'email'=>request('stripeEmail'),
-              'source'=>request('stripeToken'),
-              'plan'=>$plan->plan_id
 
-            ]);
+          try{
 
-          } catch(\Exception $e){
+          $form->save();
 
-             return response()->json(['status'=>$e->getMessage()], 422);
+          } catch(Exception $e)
+          {
+             return response()->json([
+                'status'=>$e->getMessage()], 422);
           }
 
-  		  	request()->user()->activate($customer->id);
-
-  		  	return [
+          
+          return [
            'status'=>'Success!'
-
           ];
+
+
+
+
+
  
-  		  }
+        }
 }
