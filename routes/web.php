@@ -11,7 +11,7 @@
 |
 */
 
-
+//use Log;
 
 Route::get('/',function(){
 
@@ -32,4 +32,16 @@ Route::get('/home', 'HomeController@index');
 
 Route::post('/subscriptions', 'SubscriptionsController@store');
 
+Route::post('stripe/webhook', 'WebhooksController@handle');
 
+
+// Route::get('stripe/webhook',function(){
+
+// 	$eventype=Input::json('type');
+
+// 	dd($eventype);
+
+// 	//Log::info($eventype);
+
+
+// });

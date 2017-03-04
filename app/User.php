@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -29,15 +29,29 @@ class User extends Authenticatable
     ];
 
 
-    public function activate($customerId){
+    public function activate($customerId=null){
 
-         return $this->update([
+         return $this->forceFill([
 
                 'stripe_id'=>$customerId,
 
-                'stripe_active'=>true
+                'stripe_active'=>true,
 
-            ]);
+                'subscription_end_at'=>null
+
+            ])-save();
+
+    }
+
+    public function deactivate(){
+
+         return $this->forceFill([
+
+               
+                'stripe_active'=>false,
+                'subscription_end_at'=>Carbon::now()
+
+            ])->save();
 
     }
 
