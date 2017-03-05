@@ -2,13 +2,16 @@
 
 namespace App;
 
+use App\Billing\Billable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Carbon\Carbon;
 
+
+
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -28,38 +31,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    
 
-    public function activate($customerId=null){
-
-         return $this->forceFill([
-
-                'stripe_id'=>$customerId,
-
-                'stripe_active'=>true,
-
-                'subscription_end_at'=>null
-
-            ])-save();
-
-    }
-
-    public function deactivate(){
-
-         return $this->forceFill([
-
-               
-                'stripe_active'=>false,
-                'subscription_end_at'=>Carbon::now()
-
-            ])->save();
-
-    }
-
-
-    public function subsciption()
-    {
-
-        return new Subscription($this);
-
-    }
+   
 }
