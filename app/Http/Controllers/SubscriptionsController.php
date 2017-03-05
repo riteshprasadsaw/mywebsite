@@ -6,6 +6,8 @@ use App\Http\Requests\RegistrationForm;
 use Exception;
 
 
+
+
 class SubscriptionsController extends Controller
 {
         
@@ -30,10 +32,17 @@ class SubscriptionsController extends Controller
            'status'=>'Success!'
           ];
 
-
-
-
-
- 
         }
+
+
+        public function destroy()
+        {
+
+          auth()->user()->subsciption()->cancel();
+
+          return back();
+        }
+
+
+
 }
