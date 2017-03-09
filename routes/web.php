@@ -38,5 +38,5 @@ Route::patch('/subscriptions', 'SubscriptionsController@update');
 
 Route::post('stripe/webhook', 'WebhooksController@handle');
 
-
+Route::get('videos/{video}', 'VideosController@show');
 

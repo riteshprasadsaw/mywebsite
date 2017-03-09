@@ -11,6 +11,8 @@ class Subscription
 
 	protected $user;
 
+	protected $coupon;
+
 
 
 	public function __construct(User $user)
