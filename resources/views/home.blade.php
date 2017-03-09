@@ -5,7 +5,42 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 
-        @unless(auth()->user()->isSubscribed())
+
+        @if(auth()->user()->isOnGracePeriod())
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Grace Period</div>
+
+                <div class="panel-body">
+                      
+                   <p>
+                       Your subscription will fully expire on {{auth()->user()->subscription_end_at->format('y-m-d')}}
+                   </p>
+
+                   <form method="POST" action="/subscriptions">
+                       {{method_field('PATCH')}}
+                       {{csrf_field()}}
+
+                       <div class="checkbox">
+                           
+                           <label>
+                               <input type="checkbox" name="resume">
+                               Resume My Subscription
+
+                           </label>
+                       </div>
+
+                       <button type="submit" class="btn btn-primary">Update </button>
+
+                   </form>
+    
+                </div>
+            </div>
+
+        @elseif(!auth()->user()->isSubscribed())
+
+
+        
             <div class="panel panel-default">
                 <div class="panel-heading">Create a Subscription</div>
 
@@ -18,9 +53,9 @@
                 </div>
             </div>
 
-            @endunless
+          @endif
 
-            @if(auth()->user()->isSubscribed())
+            @if(count(auth()->user()->isSubscribed()))
             <div class="panel panel-default">
                 <div class="panel-heading">Payments</div>
 
@@ -41,6 +76,10 @@
 
                 
                 </div>
+
+                @endif
+
+                @if(auth()->user()->isSubscribed())
 
                 <div class="panel panel-default">
                 <div class="panel-heading">Cancel Subscription</div>

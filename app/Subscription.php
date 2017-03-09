@@ -20,6 +20,18 @@ class Subscription
 	}
 
 
+	public function usingCoupon($coupon)
+	{
+
+		if($coupon)
+		{
+			$this->coupon=$coupon;
+		}
+
+		return $this;
+	}
+
+
 
 	public function create(Plan $plan, $token)
 	{
@@ -28,12 +40,14 @@ class Subscription
 
               'email'=>$this->user->email,
               'source'=>$token,
-              'plan'=>$plan->plan_id
+              'plan'=>$plan->plan_id,
+              'coupon'=>$this->coupon
 
             ]);
 
+		$subscriptionId=$customer->subscriptions->data[0]->id;
 
-		$this->user->activate($customer->id);
+		$this->user->activate($customer->id, $subscriptionId);
 	}
 
 
@@ -56,6 +70,22 @@ class Subscription
 		return $this->cancel(false);
 	}
 	
+
+	public function resume()
+	{
+	
+		$subscription=$this->retrieveStripeSubscription();	
+		//$subscription->plan_id='50CSDG';
+		$subscription->save();
+		$this->user->activate();
+	}
+
+	public function retrieveStripeCustomer()
+	{
+
+		return Customer::retrieve($this->user->stripe_id);
+	}
+
 
 	public function retrieveStripeSubscription()
 	{

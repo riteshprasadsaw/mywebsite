@@ -18,9 +18,11 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
+   /* protected $fillable = [
         'name', 'email', 'password','stripe_id','stripe_active'
     ];
+*/
+    protected $guarded=[];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -32,6 +34,9 @@ class User extends Authenticatable
     ];
 
     
+    protected $dates=[
 
+        'subscription_end_at'
+    ];
    
 }

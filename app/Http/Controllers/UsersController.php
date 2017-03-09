@@ -25,7 +25,7 @@ class UsersController extends Controller
     	public function show(User $name)
     	{
     		
-			die($name);
+			
     		return view('welcome');
     	}
 

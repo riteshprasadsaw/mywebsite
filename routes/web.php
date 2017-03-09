@@ -34,6 +34,8 @@ Route::post('/subscriptions', 'SubscriptionsController@store');
 
 Route::delete('/subscriptions', 'SubscriptionsController@destroy');
 
+Route::patch('/subscriptions', 'SubscriptionsController@update');
+
 Route::post('stripe/webhook', 'WebhooksController@handle');
 
 

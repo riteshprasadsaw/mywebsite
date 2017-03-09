@@ -46,11 +46,9 @@ class RegistrationForm extends FormRequest
 
            $this->user()
                 ->subsciption()
+                ->usingCoupon($this->coupon)
                 ->create($plan, $this->stripeToken);
-
-          
-            
-          
+        
         
     }
 }

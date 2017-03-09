@@ -15,13 +15,16 @@ trait Billable
     }
 
 
-    public function activate($customerId=null){
+    public function activate($customerId=null, $subscriptionId=null){
+
 
          return $this->forceFill([
 
-                'stripe_id'=>$customerId,
+                'stripe_id'=>$customerId ?? $this->stripe_id,
 
                 'stripe_active'=>true,
+
+                'stripe_subscription'=>$subscriptionId ?? $this->stripe_subscription,
 
                 'subscription_end_at'=>null
 
@@ -58,6 +61,23 @@ trait Billable
 
         return !! $this->stripe_active;
     }
+
+     public function isActive()
+    {
+
+        return $this->isSubscribed() ||  $this->isOnGracePeriod();
+    }
+
+    public function isOnGracePeriod()
+    {
+        if(! $endsAt=$this->subscription_end_at)
+        {
+            return false;
+        }
+
+        return Carbon::now()->lt(Carbon::instance($endsAt));
+    }
+
 
 
     public function payments()

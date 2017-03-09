@@ -1828,6 +1828,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
 
@@ -1838,7 +1850,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             stripeEmail: '',
             stripeToken: '',
             plan: 1,
-            status: false
+            status: false,
+            coupon: ''
         };
     },
     created: function created() {
@@ -2063,13 +2076,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.stripeEmail = $event.target.value
       }
     }
-  }), _vm._v(" "), _c('select', {
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('select', {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: (_vm.plan),
       expression: "plan"
     }],
+    staticClass: "form-control",
     attrs: {
       "name": "plan"
     },
@@ -2089,7 +2105,34 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "value": plan.id
       }
     }, [_vm._v("\n     " + _vm._s(plan.name) + " —  $" + _vm._s(plan.price / 100) + " \n     ")])
-  })), _vm._v(" "), _c('button', {
+  })), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.coupon),
+      expression: "coupon"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "coupon",
+      "placeholder": "Have a code?"
+    },
+    domProps: {
+      "value": _vm._s(_vm.coupon)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.coupon = $event.target.value
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('button', {
+    staticClass: "btn btn-primary",
     attrs: {
       "type": "submit"
     },
@@ -2099,7 +2142,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.subscribe($event)
       }
     }
-  }, [_vm._v(" Subscribe")]), _vm._v(" "), _c('p', {
+  }, [_vm._v(" Subscribe")])]), _vm._v(" "), _c('p', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -2110,7 +2153,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "textContent": _vm._s(_vm.status)
     }
-  })])
+  })])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
