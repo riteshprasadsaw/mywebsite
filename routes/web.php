@@ -40,3 +40,5 @@ Route::post('stripe/webhook', 'WebhooksController@handle');
 
 Route::get('videos/{video}', 'VideosController@show');
 
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
