@@ -19,7 +19,7 @@
             
                  
                <div id="app"> 
-              
+              <h1> Welcome to Seleniummadeeasy.com. Our site is still under construction. Please come back after some time! </h1>
                 </div>
 
                
