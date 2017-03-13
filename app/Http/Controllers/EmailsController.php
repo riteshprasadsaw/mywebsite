@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Plan;
 
-class HomeController extends Controller
+class EmailsController extends Controller
 {
     /**
      * Create a new controller instance.
