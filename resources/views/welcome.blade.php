@@ -20,7 +20,7 @@
         Cufon.replace('a.logo', {fontFamily: 'Bebas'});
         Cufon.replace('a.logo span', {fontFamily: 'Bell Gothic Std'});
     </script>
-    
+
     <style>
             html, body {
                 background-color: #fff;
@@ -110,12 +110,12 @@
  -->
         <div class="main_container">
             <div class="header">
-                <a class="logo" href="#">some name<span>the slogan goes here</span></a>
+                <a class="logo" href="#">Selenium Made Easy<span>Learn Modern Automation</span></a>
             </div>
             <div class="content">
                 <h1>hello.<span>We’re Coming Very Soon</span></h1>
                 <div class="right_side">
-                    <p>// <a href="#">info@somename.com</a><br/>// 506-200-5871</p>
+                    <p>// <a href="#">riteshandromeda@gmail.com</a><br/>// 9711998218</p>
                     <ul class="s_icons">
                         <li class="fb"><a href="#"></a></li>
                         <li class="tw"><a href="#"></a></li>
