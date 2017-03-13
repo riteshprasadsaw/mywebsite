@@ -20,10 +20,10 @@ class EmailsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store($email)
+    public function store()
     {
         // $emails=request()->all();
-        die(var_dump($email));
+        //die(var_dump($email));
 
         // return view('home', compact('plans'));
         
