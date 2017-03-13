@@ -22,7 +22,7 @@ class EmailsController extends Controller
      */
     public function store()
     {
-        $emails=request();
+        $emails=request()->all();
         die(var_dump($emails));
 
         // return view('home', compact('plans'));
