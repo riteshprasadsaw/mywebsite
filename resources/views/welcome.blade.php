@@ -82,10 +82,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    seleniummadeeasy.com
+                    Our site is under construction. Please come back after some time.
                 </div>
 
-                <h3> Site is under construction. Please come back after some time </h3>
+                
             </div>
         </div>
     </body>
