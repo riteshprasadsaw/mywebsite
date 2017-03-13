@@ -11,6 +11,16 @@
     };
     </script>
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="tools/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="tools/jquery.min.js"></script> 
+    <script type="text/javascript" src="tools/cufon-yui.js"></script>
+    <script type="text/javascript" src="tools/Bebas_400.font.js"></script>
+    <script type="text/javascript" src="tools/Bell_Gothic_Std_300.font.js"></script>
+    <script type="text/javascript">
+        Cufon.replace('a.logo', {fontFamily: 'Bebas'});
+        Cufon.replace('a.logo span', {fontFamily: 'Bell Gothic Std'});
+    </script>
+    
     <style>
             html, body {
                 background-color: #fff;
@@ -97,6 +107,30 @@
                 
             </div>
         </div>
+
+        <div class="main_container">
+            <div class="header">
+                <a class="logo" href="#">some name<span>the slogan goes here</span></a>
+            </div>
+            <div class="content">
+                <h1>hello.<span>We’re Coming Very Soon</span></h1>
+                <div class="right_side">
+                    <p>// <a href="#">info@somename.com</a><br/>// 506-200-5871</p>
+                    <ul class="s_icons">
+                        <li class="fb"><a href="#"></a></li>
+                        <li class="tw"><a href="#"></a></li>
+                        <li class="in"><a href="#"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <form class="email">
+                <input type="text" class="field" onfocus="if(this.value=='Get Notified (Email Address)') this.value='';" onblur="if(this.value=='' || this.value==' ') this.value='Get Notified (Email Address)';" value="Get Notified (Email Address)" />
+                <input type="button" class="submit" />
+            </form>
+    
+        </div>
+
+
     </body>
 
 </html>
