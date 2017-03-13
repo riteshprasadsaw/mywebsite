@@ -85,7 +85,7 @@
 </head>
   
    <body>
-        <div class="flex-center position-ref full-height">
+        <!-- <div class="flex-center position-ref full-height">
             @if (Route::has('login1'))
                 <div class="top-right links">
                     @if (Auth::check())
@@ -107,7 +107,7 @@
                 
             </div>
         </div>
-
+ -->
         <div class="main_container">
             <div class="header">
                 <a class="logo" href="#">some name<span>the slogan goes here</span></a>
