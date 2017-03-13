@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Plan;
+use App\Http\Requests;
 
 class EmailsController extends Controller
 {
@@ -21,7 +22,7 @@ class EmailsController extends Controller
      */
     public function store()
     {
-        $emails=request()->all();
+        $emails=request();
         die(var_dump($emails));
 
         // return view('home', compact('plans'));
