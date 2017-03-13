@@ -22,10 +22,11 @@ class HomeController extends Controller
     public function store()
     {
         $emails=request()->all();
-        dd($emails);
+        die(var_dump($emails));
 
         // return view('home', compact('plans'));
         
+        return back();
     }
 
    
