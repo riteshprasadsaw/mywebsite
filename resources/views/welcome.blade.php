@@ -123,7 +123,9 @@
                     </ul>
                 </div>
             </div>
-            <form class="email">
+            <form class="email" method="POST" action="/emails">
+                {{csrf_field()}}
+                
                 <input type="text" class="field" onfocus="if(this.value=='Get Notified (Email Address)') this.value='';" onblur="if(this.value=='' || this.value==' ') this.value='Get Notified (Email Address)';" value="Get Notified (Email Address)" />
                 <input type="button" class="submit" />
             </form>
