@@ -40,7 +40,7 @@ Route::post('stripe/webhook', 'WebhooksController@handle');
 
 Route::get('videos/{video}', 'VideosController@show');
 
-Route::post('/emails', 'EmailsController@store');
+Route::post('/emails/{email}', 'EmailsController@store');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
