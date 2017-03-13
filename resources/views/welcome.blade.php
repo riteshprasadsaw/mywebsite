@@ -82,9 +82,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Our site is under construction. Please come back after some time.
+                    Our site is under construction.
                 </div>
-
+                <hr>
+                <h3> Please come back after some time. </h3>
                 
             </div>
         </div>
