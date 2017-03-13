@@ -85,7 +85,7 @@
                     Our site is under construction.
                 </div>
                 <hr>
-                <h3> Please come back after some time. </h3>
+                <h2> Please come back after some time. </h2>
                 
             </div>
         </div>
