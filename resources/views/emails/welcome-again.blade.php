@@ -8,7 +8,7 @@ Subscribe
 @endcomponent
 
 @component('mail::panel', ['url' => ''])
-This is new netflix for you!
+This is new netflix for your career.
 @endcomponent
 
 Thanks,<br>
