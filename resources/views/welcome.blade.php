@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Selenium Made Easy</title>
+    <title>BeAutomationExpert</title>
 
     <script>
         
