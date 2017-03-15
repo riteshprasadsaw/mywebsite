@@ -3,7 +3,7 @@
 
 Thanks so much for registering!
 
-@component('mail::button', ['url' => 'http:/seleniummadeeasy.com'])
+@component('mail::button', ['url' => 'http:/beautomationexpert.com'])
 Subscribe
 @endcomponent
 
