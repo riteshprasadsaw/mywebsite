@@ -115,7 +115,7 @@
             <div class="content">
                 <h1>hello.<span>We’re Coming Very Soon</span></h1>
                 <div class="right_side">
-                    <p> <a href="#">riteshandromeda@gmail.com</a><br/>+91-9711998218</p>
+                    <p> <a href="#">riteshandromeda@gmail.com</a><br/>+91-9711998218 (India)</p>
                     <ul class="s_icons">
                         <li class="fb"><a href="#"></a></li>
                         <li class="tw"><a href="#"></a></li>
