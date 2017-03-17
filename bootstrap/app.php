@@ -52,8 +52,8 @@ $app->singleton(
 |
 */
 
-$app->configureMonologUsing(function($monolog){
-        $monolog->pushHandler(new Monolog\Handler\SyslogHandler('papertrail'));
-    });
+// $app->configureMonologUsing(function($monolog){
+//         $monolog->pushHandler(new Monolog\Handler\SyslogHandler('papertrail'));
+//     });
 
 return $app;
