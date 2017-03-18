@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('stripe_subscription')->nullable();
             $table->boolean('stripe_active')->default(false);
             $table->timestamp('subscription_end_at')->nullable();
+            $table->boolean('confirmed')->default(false);
+            $table->string('token',254)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

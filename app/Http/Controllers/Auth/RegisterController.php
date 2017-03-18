@@ -6,7 +6,9 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Illuminate\Http\Request;
+use Mail;
+use App\Mail\WelcomeAgain;
 
 class RegisterController extends Controller
 {
@@ -71,4 +73,45 @@ class RegisterController extends Controller
       
 
     }
+
+    protected function register(Request $request)
+    {
+        $input=$request->all();
+        $validator=$this->validator($input);
+    
+        if($validator->passes())
+        {
+            $data=$this->create($input)->toArray();
+            $data['token']=str_random(25);
+
+            $user=User::find($data['id']);
+            $user->token=$data['token'];
+            $user->save();
+
+            Mail::send('emails.confirmation', $data, function($message) use($data){
+                $message->to($data['email']);
+                $message->subject('Registration onfirmation');
+            });
+            //Mail::to($user)->send(new WelcomeAgain($user));
+            return redirect(route('login'))->with('status','Confirmation email has been sent');
+
+
+        }
+
+        return redirect(route('login'))->with('status', $validator->errors());
+    }
+
+    public function confirmation($token)
+    {
+        $user=User::where('token',$token)->first();
+        if(!is_null( $user))
+        {
+            $user->confirmed=1;
+            $user->token='';
+            $user->save();
+            return redirect(route('login'))->with('status','Your activation is completed');
+        }
+        return redirect(route('login'))->with('status','Something went wrong');
+    }
+
 }

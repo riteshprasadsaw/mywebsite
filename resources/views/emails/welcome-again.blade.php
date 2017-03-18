@@ -14,3 +14,5 @@ This is new netflix for your career.
 Thanks,<br>
 {{ config('app.name') }}
 @endcomponent
+
+
