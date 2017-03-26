@@ -1,4 +1,4 @@
-<?php
+1<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -11,7 +11,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() 
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('subscription_end_at')->nullable();
             $table->boolean('confirmed')->default(false);
             $table->string('token',254)->nullable();
+            $table->string('avatar')->default('default.jpg');
             $table->rememberToken();
             $table->timestamps();
         });

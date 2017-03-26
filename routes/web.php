@@ -22,7 +22,8 @@ Route::get('/',function(){
 
 });
 
-//Route::get('/','UsersController@index');
+Route::get('profile','UsersController@profile');
+Route::post('profile','UsersController@update_avatar');
 
 //Route::get('/{name}','UsersController@show');
 
