@@ -93,7 +93,7 @@ class RegisterController extends Controller
                 $message->subject('Registration onfirmation');
             });
             //Mail::to($user)->send(new WelcomeAgain($user));
-            return redirect(route('login'))->with('status','Confirmation email has been sent');
+            return redirect(route('login'))->with('status','Confirmation email has been sent! Please check your email box.');
 
 
         }
@@ -109,9 +109,9 @@ class RegisterController extends Controller
             $user->confirmed=1;
             $user->token='';
             $user->save();
-            return redirect(route('login'))->with('status','Your activation is completed');
+            return redirect(route('login'))->with('status','Your activation is completed. Please login to continue.');
         }
-        return redirect(route('login'))->with('status','Something went wrong');
+        return redirect(route('login'))->with('status','Whoops!,Something went wrong');
     }
 
 }
