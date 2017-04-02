@@ -7,6 +7,12 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
+                  @if($status=Session::get('status'))
+
+                        <div class="alert alert-info">
+                            {{$status}}
+                        </div>
+                    @endif
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
@@ -60,7 +66,13 @@
                             </div>
                         </div>
 
-                        
+
+                        <div class="form-group">
+                        <div class="col-md-6 col-md-offset-4">
+                             <div class="g-recaptcha" data-sitekey="6LdeYhoUAAAAAL6Bi1vVWyfw_HwpEhTmG9-OQ5b8"></div>
+                        </div>
+                        </div>
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

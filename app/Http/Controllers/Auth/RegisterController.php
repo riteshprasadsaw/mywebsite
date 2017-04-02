@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Mail;
 use App\Mail\WelcomeAgain;
+use Guzzlehttp\Client;
 
 class RegisterController extends Controller
 {
@@ -54,6 +55,7 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'g-recaptcha-response' => 'required',
         ]);
     }
 
@@ -78,8 +80,24 @@ class RegisterController extends Controller
     {
         $input=$request->all();
         $validator=$this->validator($input);
-    
-        if($validator->passes())
+        
+        $gtoken=$request->input('g-recaptcha-response');
+       
+        $client = new \GuzzleHttp\Client();
+        $response=$client->post('https://www.google.com/recaptcha/api/siteverify',[
+            'form_params'=>array(
+                'secret'=>'6LdeYhoUAAAAAMcS_L15f7xfAiOb1E47CFobaJGz',
+                'response'=>$gtoken
+                )
+
+            ]);
+
+        $result=json_decode($response->getBody()->getContents());
+
+        // dd($result);
+
+
+        if($validator->passes() and $result->success )
         {
             $data=$this->create($input)->toArray();
             $data['token']=str_random(25);
@@ -98,7 +116,7 @@ class RegisterController extends Controller
 
         }
 
-        return redirect(route('login'))->with('status', $validator->errors());
+        return redirect(route('register'))->with('status', $validator->errors());
     }
 
     public function confirmation($token)

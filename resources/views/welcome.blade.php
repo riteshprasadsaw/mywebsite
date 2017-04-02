@@ -11,6 +11,7 @@
     };
     </script>
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
     <link href="tools/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="tools/jquery.min.js"></script> 
     <script type="text/javascript" src="tools/cufon-yui.js"></script>
@@ -20,6 +21,8 @@
         Cufon.replace('a.logo', {fontFamily: 'Bebas'});
         Cufon.replace('a.logo span', {fontFamily: 'Bell Gothic Std'});
     </script>
+    <!-- Latest compiled and minified CSS -->
+  
 
     <style>
             html, body {
@@ -115,7 +118,7 @@
             <div class="content">
                 <h1>hello.<span>We’re Coming Very Soon</span></h1>
                 <div class="right_side">
-                    <p> <a href="#">riteshandromeda@gmail.com</a><br/>+91-9711998218 (India)</p>
+                    <p> <a href="#">riteshandromeda@gmail.com</a></p>
                     <ul class="s_icons">
                         <li class="fb"><a href="#"></a></li>
                         <li class="tw"><a href="#"></a></li>
@@ -131,6 +134,8 @@
             </form>
     
         </div>
+
+       
 
 
     </body>
