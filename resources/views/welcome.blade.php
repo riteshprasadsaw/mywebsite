@@ -126,6 +126,9 @@
                     </ul>
                 </div>
             </div>
+
+             
+       
             <form class="email" method="POST" action="/emails">
                 {{csrf_field()}}
                 

@@ -18,8 +18,7 @@
 				 <div class="row">
 				 <div class="span6">
 				 <div class="flex-video widescreen" style="margin: 0 auto;text-align:center;">
-				 <iframe allowfullscreen="" src="http://player.vimeo.com/video/71876963" frameborder="0" width="500" height="281"></iframe>
-
+				 <iframe width="560" height="315" src="https://www.youtube.com/embed/7fp6GodtzJA" frameborder="0" allowfullscreen></iframe>
 				  </div> 
 
 

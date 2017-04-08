@@ -45,4 +45,6 @@ Route::post('/emails', 'EmailsController@store');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+Route::post('profile', 'UsersController@delete_account');
+
 Route::get('/users/confirmation/{token}', 'Auth\RegisterController@confirmation')->name('confirmation');

@@ -53,6 +53,20 @@ class UsersController extends Controller
              return view('profile', array('user'=>Auth::user()));
         }
 
+        public function delete_account()
+        {
+           
+             $user = User::find(Auth::user()->id);
+
+             Auth::logout();
+
+             if ($user->delete()) {
+
+                return redirect(route('login'))->with('status','Your account has been deleted successfully. Sorry to see you go!');
+
+             }
+        }
+
 
 
 
