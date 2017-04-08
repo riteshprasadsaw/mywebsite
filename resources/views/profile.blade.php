@@ -12,7 +12,7 @@
 
        
             <img src="/images/{{$user->avatar}}" style="width: 150px;height: 150px; float: left;border-radius: 50%; margin-right: 25px">
-            
+
             <h2>{{$user->name}} 's Profile</h2>
 
             <form enctype="multipart/form-data" action="/profile" method="POST">
@@ -46,7 +46,7 @@
                  {{csrf_field()}}
                  <!-- <input name="delete profile" type="submit" class="btn btn-link"> -->
                  <h5> Are you sure you want to delete your account?</h5>
-                 <button type="submit" class="btn btn-lg btn-danger">Delete Profile </button>
+                 <button type="submit" class="btn btn-lg btn-danger">Delete Your Profile </button>
             </form>
             </div>
             </div>
