@@ -46,7 +46,7 @@
                  {{csrf_field()}}
                  <!-- <input name="delete profile" type="submit" class="btn btn-link"> -->
                  <h5> Are you sure you want to delete your account?</h5>
-                 <button type="submit" class="btn btn-lg btn-danger">Delete Your Profile </button>
+                 <button type="submit" class="btn btn-lg btn-danger">Delete Profile </button>
             </form>
             </div>
             </div>
