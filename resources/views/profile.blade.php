@@ -41,7 +41,7 @@
             <div class="panel-body">
 
             <div>
-             <form method="POST" action="/profile">
+             <form method="POST" action="/profile/{{$user->id}}">
                 
                  {{csrf_field()}}
                  <!-- <input name="delete profile" type="submit" class="btn btn-link"> -->
