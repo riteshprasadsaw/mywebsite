@@ -118,6 +118,7 @@
      <script src="http://vjs.zencdn.net/5.19./video.js"></script>
      <script src="//cdn.sc.gl/videojs-hotkeys/0.2/videojs.hotkeys.min.js"></script>
      <script src="/js/main.js"></script>
+     <script src='https://www.google.com/recaptcha/api.js'></script>
 
      
 </script>
