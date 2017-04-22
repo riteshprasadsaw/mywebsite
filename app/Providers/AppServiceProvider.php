@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
         //
 
             Stripe::setApiKey(config('services.stripe.secret'));
+            Schema::defaultStringLength(191);
     }
 
     /**
