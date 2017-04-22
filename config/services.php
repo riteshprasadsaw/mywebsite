@@ -36,5 +36,11 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'recaptcha' => [
+        
+        'sitekey' => '6LdeYhoUAAAAAL6Bi1vVWyfw_HwpEhTmG9-OQ5b8',
+        'secret' => env('STRIPE_SECRET'),
+    ],
+
 
 ];

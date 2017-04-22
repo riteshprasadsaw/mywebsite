@@ -113,7 +113,9 @@
  -->
         <div class="main_container">
             <div class="header">
+                <img src="/images/mysitelogo.png" style="width: 130px; height: 110px">
                 <a class="logo" href="#">BeAutomationExpert<span>Learn Modern Automation</span></a>
+                
             </div>
             <div class="content">
                 <h1>hello.<span>We’re Coming Very Soon</span></h1>

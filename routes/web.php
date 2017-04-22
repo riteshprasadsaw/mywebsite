@@ -22,8 +22,7 @@ Route::get('/',function(){
 
 });
 
-Route::get('profile','UsersController@profile');
-Route::post('profile','UsersController@update_avatar');
+
 
 //Route::get('/{name}','UsersController@show');
 
@@ -32,9 +31,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::post('/subscriptions', 'SubscriptionsController@store');
-
 Route::delete('/subscriptions', 'SubscriptionsController@destroy');
-
 Route::patch('/subscriptions', 'SubscriptionsController@update');
 
 Route::post('stripe/webhook', 'WebhooksController@handle');
@@ -45,6 +42,8 @@ Route::post('/emails', 'EmailsController@store');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+Route::get('profile','UsersController@profile');
+Route::post('profile','UsersController@update_avatar');
 Route::post('profile/{id}', 'UsersController@delete_account');
 
 Route::get('/users/confirmation/{token}', 'Auth\RegisterController@confirmation')->name('confirmation');

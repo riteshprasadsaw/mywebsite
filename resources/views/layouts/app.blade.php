@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="http://vjs.zencdn.net/5.19.1/video-js.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -112,8 +113,12 @@
      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
      <script src="../../dist/js/bootstrap.min.js"></script>
      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-     <script src='https://www.google.com/recaptcha/api.js'></script>
+     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>  
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>  
+     <script src="http://vjs.zencdn.net/5.19./video.js"></script>
+     <script src="//cdn.sc.gl/videojs-hotkeys/0.2/videojs.hotkeys.min.js"></script>
+     <script src="/js/main.js"></script>
+
      
 </script>
 

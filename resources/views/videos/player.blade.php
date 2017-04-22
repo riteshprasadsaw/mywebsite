@@ -14,7 +14,7 @@
 			<p>
 				ACCOUNT IS ACTIVE: EMBED THE VIDEO HERE
 
-				<div class="container">
+				<!-- <div class="container">
 				 <div class="row">
 				 <div class="span6">
 				 <div class="flex-video widescreen" style="margin: 0 auto;text-align:center;">
@@ -24,9 +24,21 @@
 
 				   </div>
 				   </div>
-				   </div>
+				   </div> -->
+
+
 			</p>
 
-			
+			<video  id="my-video" class="video-js vjs-big-play-centered" controls poster="http://vjs.zencdn.net/v/oceans.png" data-setup="{}">
+
+            <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading
+                to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+
+		
 
 		@endif
